@@ -94,7 +94,8 @@ def data_from_prom_api_response(prom_api_response):
     anonymous_metric_counter = 0
 
     for prom_metric in ts_raw_data:
-        id_keys = {"instance", "job", "name"}
+        # id_keys = {"instance", "job", "name"}  # we want name to distiguis cAdvisor data
+        id_keys = {"instance", "job"}
         metric_meta = prom_metric['metric']
         labels = set(metric_meta.keys()) - id_keys
         label_metrics = {label: metric_meta[label] for label in labels if label in metric_meta}
