@@ -115,9 +115,10 @@ def data_from_prom_api_response(prom_api_response):
             metric_name = "value_{}".format(anonymous_metric_counter)
 
         metric_scrape_id = ""
-        for value in sorted(ids.values()):
-            metric_scrape_id = metric_scrape_id + "{}_".format(value)
-        metric_scrape_id = metric_scrape_id[:-1]
+        # disabled metric scape id to keep files small
+        #for value in sorted(ids.values()):
+        #    metric_scrape_id = metric_scrape_id + "{}_".format(value)
+        #metric_scrape_id = metric_scrape_id[:-1]
 
         if metric_name not in col_pos_index:
             col_pos_index[metric_name] = 0
